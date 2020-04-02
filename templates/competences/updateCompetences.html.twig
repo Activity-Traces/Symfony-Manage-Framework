@@ -1,0 +1,72 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# add new competence #}
+{#**************************************************************************************************************************************#}
+
+{% if action == 'AddCompetence' %}
+
+   <div class="card card-body">
+
+        {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+        {{ form_start(form) }}   
+
+                {{ form_row(form.nom, {'attr': {'placeholder' : "Donner un nom à votre compétence"}}) }}
+                {{ form_row(form.description, {'attr': {'rows' : '8', 'placeholder' : " Donner une description à votre compétence"}}) }}
+                {{ form_row(form.niveauCompetence, {'attr': {'placeholder' : "Niveau de compétence?"}}) }}
+                {{ form_row(form.niveauResponsabilite, {'attr': {'placeholder' : "Niveau de responsabilité?"}}) }}
+               
+                <div align='right'>
+
+                        <button type="submit" class="btn">
+                                Ajouter aux compétences 
+                        </button>
+                </div>        
+
+        {{ form_end(form) }}
+
+    </div>   
+    
+{% endif %}
+
+{#**************************************************************************************************************************************#}
+{# edit an existing competence #}
+{#**************************************************************************************************************************************#}
+
+{% if action == 'EditCompetence' %}
+
+    <div class="card card-body">
+
+        {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+        {{ form_start(form) }}   
+
+                {{ form_row(form.nom, {'attr': {'placeholder' : "Donner un nom à votre compétence"}}) }}
+                {{ form_row(form.description, {'attr': {'rows':'8', 'placeholder' : " Donner une description à votre compétence"}}) }}
+                {{ form_row(form.niveauCompetence, {'attr': {'placeholder' : "Niveau de compétence?"}}) }}
+                {{ form_row(form.niveauResponsabilite, {'attr': {'placeholder' : "Niveau de responsabilité?"}}) }}
+               
+                <div align='right'>
+                        <button type="submit" class="btn">
+                                Editer cette compétence   
+                        </button>
+                </div>
+
+        {{ form_end(form) }}
+
+    </div>   
+
+{% endif %}
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}
+

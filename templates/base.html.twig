@@ -1,0 +1,166 @@
+{#**************************************************************************************************************************************#}
+
+{#  style for navbar and sidebar#}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> 
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+
+{#bootstrap, Jquery, popper and google chart #}
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+ 
+{#  icons font and google chart JS#}
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+{#  Additional style for bootstrap#}
+
+{{ encore_entry_link_tags('mystyle') }}
+
+
+{#**************************************************************************************************************************************#}
+{# main div to organise diffrent div pages#}
+{#**************************************************************************************************************************************#}
+
+<div class="wrapper">
+
+  
+{#**************************************************************************************************************************************#}
+{# Left sidebar with: manage referentiels, competences, indicators and traces. Manage list of users: only for admin user #}
+{#**************************************************************************************************************************************#}
+    
+  <nav id="sidebar">
+      <ul class="components">
+
+{#**************************************************************************************************************************************#}
+        <li>
+          <a href="{{path('Home')}}">
+              <i  class='fas fa-home fa-2x' title='Acceuil'  style="color: #ffffff;"></i> &nbsp;                  
+          </a>
+        </li>
+
+{#**************************************************************************************************************************************#}
+
+        <li>
+          <a href="{{path('viewAllReferentiels')}}">
+              <i  class='fas fa-book fa-2x' title='Les référentiels'  style="color: #BD4F39;"></i> &nbsp;                  
+          </a>
+        </li>
+
+{#**************************************************************************************************************************************#}
+            
+        <li>
+          <a href="{{path('viewAllCompetences')}}">
+              <i  class='fas fa-list-alt fa-2x' title='Les compétences'  style="color: #42A438;"></i> &nbsp;                  
+          </a>
+        </li>
+
+{#**************************************************************************************************************************************#}
+            
+        <li>
+          <a href="{{path('viewAllExercicesModels')}}">
+              <i  class='fas fa-th-list fa-2x' title='Les modèles Exercices Asker'  style="color: #387DA4;"></i> &nbsp;                  
+          </a>
+        </li>
+
+                  
+{#**************************************************************************************************************************************#}
+
+        <li>
+          <a href="{{path('traces')}}"> 
+              <i  class='fas fa-shoe-prints fa-2x' title='Les traces d activités'  style="color: #D83490"></i> &nbsp;                  
+          </a>
+        </li>
+
+{#**************************************************************************************************************************************#}
+
+        <li>
+          <a href="{{path('CreateIndicator')}}">
+              <i  class='fas fa-chart-pie fa-2x' title='Les indicateurs'  style="color: #DCCA0E;"></i> &nbsp;                  
+          </a>
+        </li>
+
+{#**************************************************************************************************************************************#}
+
+        <li>
+          <a href="{{path('share')}}">
+              <i  class='fas fa-database fa-2x' title='Mes partages'  style="color: #5D9174;"></i> &nbsp;                  
+          </a>
+        </li>
+
+{#**************************************************************************************************************************************#}
+
+        {% if  app.user.username == "admin" %}
+        <li>
+          <a href="{{path('myUsers')}}">
+              <i  class='fas fa-user fa-2x' title='Les utilisateurs'  style="color: #ffffff;"></i> &nbsp;                  
+          </a>
+        </li>
+        {% endif %}                     
+
+{#**************************************************************************************************************************************#}
+          
+    </ul>
+ 
+  </nav>
+
+{#**************************************************************************************************************************************#}
+{# Top menu #}
+{#**************************************************************************************************************************************#}
+
+  <div id="content">
+    <nav class="navbar">
+        <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn" style="color:white; background-color:   rgb(85, 92, 92);">
+              <i class="fas fa-align-left"></i><span></span>
+            </button>
+                
+
+            {% if app.user %}
+                <div align="left" style="color: white;"> 
+                    Bienvenue  <strong style="color:#FAFCFC;">{{ app.user.username }}</strong>
+                </div>
+
+
+                <div align="right"> 
+                    <a  href="{{path('disconnect')}}">
+                        <i  class='fas fa-sign-out-alt fa-lg' title='Déconnecter'  style="color: white;"></i> &nbsp;                  
+                    </a>   
+                </div>
+            {% endif %}
+
+{#**************************************************************************************************************************************#}
+        </div>
+    </nav>
+
+
+{#**************************************************************************************************************************************#}
+{# Main page: card-text#}
+{#**************************************************************************************************************************************#}
+<body>
+
+{% block body %}
+
+
+{% endblock %}
+      
+{#**************************************************************************************************************************************#}
+{# Preview hide left sidebar#}
+{#**************************************************************************************************************************************#}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+

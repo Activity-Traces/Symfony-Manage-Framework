@@ -1,0 +1,132 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+
+  <div class="card card-cascade narrower">
+
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 
+              d-flex justify-content-between align-items-center">
+  
+      Liste des referentiels partagés
+
+      <div>
+
+        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+          <i class="fas fa-info-circle mt-0"></i>
+        </button>
+
+      </div>
+
+    </div>
+    
+    <div class="px-4">
+
+      <div class="table-wrapper">
+      
+        <table class="table">
+
+          <thead>
+
+              <tr >
+                  <th class="th-referentiel">Titre</th>
+                  <th class="th-referentiel">Détails</th>
+                  <th class="th-referentiel">Partagé par</th>
+                  <th class="th-referentiel">Importer</th>
+              </tr>
+              
+          </thead>
+
+          <tbody>
+              {% for ligne in SharedRef %}         
+                  <tr>           
+                      <td>{{ ligne.titre }}</td>
+                      <td><a href="{{path('viewOneReferentiel', {'id':ligne.id })}}" title="Détails">
+                          <i class="fas fa-eye"></i></a></td>    
+                      <td>{{ ligne.user.username }}</td>  
+
+                      <td><a href="{{path('importReferentiel', {'id':ligne.id })}}" 
+                                  onclick="return confirm('Voulez vous importer ?')" title="Importer?">
+                                  <i class="fas fa-save"></i></a>
+                      </td>
+
+                  </tr>
+              {% endfor %}
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <h6></h6>
+
+  {#**************************************************************************************************************************************#}
+
+  <div class="card card-cascade narrower">
+  
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 
+                d-flex justify-content-between align-items-center">
+
+      Liste des compétences partagées
+    
+      <div>
+        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+          <i class="fas fa-info-circle mt-0"></i>
+        </button>
+      </div>
+
+    </div>
+
+  {#**************************************************************************************************************************************#}
+
+    <div class="px-4">
+
+      <table class="table">
+
+        <thead>
+
+            <tr >
+                <th class="th-competence">Titre</th>
+                <th class="th-competence">Détails</th>
+                <th class="th-competence">Partagé par</th>
+                <th class="th-competence">Importer</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            {% for ligne in SharedComp %}         
+                <tr>           
+                  
+                    <td>{{ ligne.nom }}</td>
+                    <td><a href="{{path('ViewOneCompetence', {'id':ligne.id })}}" title="Détails">
+                        <i class="fas fa-eye"></i></a></td>    
+                    <td>{{ ligne.user.username }}</td>  
+
+                    <td><a href="{{path('importCompetence', {'id':ligne.id })}}" 
+                                onclick="return confirm('Voulez vous importer ?')" title="Importer?">
+                                <i class="fas fa-save"></i></a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

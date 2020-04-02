@@ -1,0 +1,85 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# configure source  trace #}
+{#**************************************************************************************************************************************#}
+
+  {{ form_start(form) }}    
+
+    <div class="card card-body">
+      
+      <h6>Sélectionner votre source de traçage</h6>
+
+      <span class="label label-info">
+            Nous vous proposons deux choix pour identifier la source de traçage
+      </span>
+
+      <hr>
+
+      <div class="custom-control custom-radio">
+        <input type="radio" id="Radio1" name="Radio" value="Asker" class="custom-control-input" checked>
+        <label class="custom-control-label" for="Radio1">Choisir Asker comme une source de traçage</label>
+      </div>
+
+      <hr>
+
+      <div class="custom-control custom-radio">
+        <input type="radio" id="Radio2" name="Radio" value="others" class="custom-control-input">
+        <label class="custom-control-label" for="Radio2"> Choisir une autre source de traçage</label>
+      </div>
+      <p>
+        
+      {{ form_row(form.fichier) }}
+      
+    
+      <div align='right'>
+        <button  type="submit" class="btn">Charger les traces </button>
+      </div>
+    
+    </div>
+  
+  {{ form_end(form) }}      
+
+{#**************************************************************************************************************************************#}
+{# View downloaded traces #}
+{#**************************************************************************************************************************************#}
+
+
+  <table class="table">
+
+    <thead>
+        <tr>
+            <th class="th-trace">Subject</th>
+            <th class="th-trace">Object</th>
+            <th class="th-trace">Activity</th>
+
+            <th class="th-trace">Description</th>
+            <th class="th-trace">Answer</th>
+            <th class="th-trace">Scale</th>
+            <th class="th-trace">Timestamps</th>
+            <th class="th-trace">Duration</th>
+        </tr>
+    </thead>
+
+{#**************************************************************************************************************************************#}
+{# Comming soon #}
+{#**************************************************************************************************************************************#}
+
+    <tbody>
+
+
+    </tbody>
+        
+  </table>
+
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

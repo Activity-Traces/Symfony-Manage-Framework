@@ -1,0 +1,144 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+
+  {{ form_start(form) }}    
+      {{ form_row(form.search, {'attr': {'placeholder' : "Trouver un modèle d'exercice"}}) }}
+  {{ form_end(form) }}
+
+{#**************************************************************************************************************************************#}
+
+    <div class="card card-cascade narrower">
+
+
+
+{#**************************************************************************************************************************************#}
+
+    <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 
+              d-flex justify-content-between align-items-center">
+
+        <h6>Mes liste des modèles exercices importés depuis Asker</h6>
+        
+        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+            <i class="fas fa-info-circle mt-0"></i>
+        </button>
+    
+    </div>
+
+{% if child is defined %}
+{#
+    <nav class="navbar">
+       
+
+    </nav>
+#}
+{% endif %}
+
+{#**************************************************************************************************************************************#}
+
+
+    <div class="wrapper">
+        <nav id="sidebar1">
+            
+            <ul class="list-unstyled components">
+             
+                {% for parent in directories %} 
+
+                   {% if (parent[1] == []) %}
+
+                        <li>
+                            <a href="{{path('viewAllExercicesModels', {'parent':parent[0].id, 'child':parent[0].id})}}">
+                            <i class="fas fa-folder-open"></i>  {{parent[0].name}}</a>
+                        </li>
+
+                    {% else %}
+
+
+                        <li>
+                            
+
+                            <a href="#{{parent[0].name}}" data-toggle="collapse" aria-expanded="false" 
+                                                class="dropdown-toggle"><i class="fas fa-folder-open"></i>  {{parent[0].name}}</a>
+                            <ul class="collapse list-unstyled" id="{{parent[0].name}}">
+                                {% for child in parent[1] %} 
+
+                                    <li>
+                                        <a href="{{path('viewAllExercicesModels', {'parent':parent[0].id, 'child':child.id })}}">
+                                        <i class="fas fa-folder-open"></i>  {{child.name}}</a>
+                                    </li>
+                            
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endfor %}           
+
+            </ul>
+        </nav>
+        
+       
+            <table class="table">
+
+   
+                <thead>
+                <tr >
+                    <th class="th-exercice" style="width:5%">Type</th>
+                    <th class="th-exercice">Titre</th>
+
+                    <th class="th-exercice" style="width:10%">Auteur</th>
+                    <th class="th-exercice" style="width:5%">Details</th>
+                </tr>
+                </thead>
+
+               <tbody>
+                    {% if result != null %}
+
+                        {% for ligne in result.model %}  
+
+                            <tr>           
+                                <td>
+                                    {% if ligne.type =="group-items" %}
+                                            <i class="fas fa-link fa-lg" style="color: #297615;"></i>
+
+                                    {% elseif ligne.type == "multiple-choice" %}
+                                            <i class="fas fa-check-square fa-lg" style="color: #297615;"></i>
+
+                                    {% elseif ligne.type == "open-ended-question" %}
+                                            <i class="fas fa-question-circle fa-lg" style="color: #297615;"></i>
+
+                                    {% elseif ligne.type == "order-items" %}
+                                           <i class="fas fa-arrows-alt-v fa-lg" style="color: #297615;"></i>
+
+                                    {% elseif ligne.type == "pair-items" %}
+                                            <i class="fas fa-random fa-lg" style="color: #297615;"></i>
+                                    {% endif %}                                    
+                                </td>
+                                <td>{{ ligne.title }}</td>
+                                <td>{{ ligne.owner.username  }}</td>                                                    
+                                <td><a href="{{path('answers', {'id':ligne.id })}}" title="Détails">
+                                    <i class="fas fa-eye fa-lg"></i></a>
+                                </td>                    
+                            </tr>
+                            
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+
+            </table> 
+
+     
+
+    </div>
+
+{#**************************************************************************************************************************************#}
+
+{% endblock %}
+
+    

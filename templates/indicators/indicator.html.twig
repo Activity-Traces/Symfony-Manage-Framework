@@ -1,0 +1,127 @@
+
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# manage computation  #}
+{#**************************************************************************************************************************************#}
+
+  <hr>
+
+    <div align="left"> 
+
+        <i  class='fas fa-chart-pie fa-2x' title='Les formes affichage'  data-toggle="collapse" href="#choix" 
+            style="color: #99184F;"></i> &nbsp;                  
+      
+    </div>
+  <p>
+
+{#**************************************************************************************************************************************#}
+  <div class="collapse" id="choix">
+
+    <div class="card card-body">
+
+        <p class="post-chartjs-icon-overview">
+
+          <a href="{{path('viewIndicator', {'type':'bar' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/bars.png" alt="Bar chart" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Bars</span>
+          </a>  
+          
+          <a href="{{path('viewIndicator', {'type':'line' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/line.png" alt="Line chart" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Ligne</span>
+          </a>  
+
+          <a href="{{path('viewIndicator', {'type':'pie' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/pie.png" alt="Pie" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Ligne</span>
+          </a>  
+
+          <a href="{{path('viewIndicator', {'type':'radar' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/radar.png" alt="Radar" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Radar</span>
+          </a>  
+
+          <a href="{{path('viewIndicator', {'type':'polarArea' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/polar.png" alt="Polar" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Polar</span>
+          </a>  
+
+          <a href="{{path('viewIndicator', {'type':'doughnut' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/doughnut.png" alt="Doughnut" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Doughnut</span>
+          </a>  
+
+          <a href="{{path('viewIndicator', {'type':'horizontalBar' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/horizontal.png" alt="Pie" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Bar horizental</span>
+          </a>  
+
+          <a href="{{path('viewIndicator', {'type':'bubble' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/bubbles.png" alt="Bubble" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Bubbles</span>
+          </a> 
+
+          <a href="{{path('viewIndicator', {'type':'aa' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/mixed.png" alt="Mixed" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Mixed</span>
+          </a> 
+
+          <a href="{{path('viewIndicator', {'type':'bb' })}}" class="post-chartjs-icon-overview-item">
+            <img src="/build/images/grouped.png" alt="Grouped" width="95" height="60" />
+            <span class="post-chartjs-icon-overview-title">Grouped</span>
+          </a> 
+
+        </p>
+    
+    </div>
+  </div>
+
+{#**************************************************************************************************************************************#}
+{# use chart JS to display indicators  #}
+{#**************************************************************************************************************************************#}
+
+  <canvas class="my-4" id="myChart" width="900" height="350"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  
+  <script type="text/javascript" src="https://unpkg.com/chartjs-plugin-colorschemes@0.3.0/dist/chartjs-plugin-colorschemes.min.js"></script>
+
+  <script>
+
+    new Chart(document.getElementById("myChart"), {
+      type: "{{ type }}",
+    
+      data: {
+        labels: {{ x }},
+        datasets: [{
+
+          label: "Indicateur",
+          
+          backgroundColor: Chart.colorschemes.brewer['Paired12'],
+          data: {{ x }}
+
+        }]
+      },
+    
+      options: {
+          plugins: {
+            colorschemes: {
+                scheme: 'brewer.YlGn3'
+            }
+          }
+      }
+    });
+
+  </script>
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+   
+{% endblock %}

@@ -1,0 +1,168 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# Toolbar to view one referentiel #}
+{#**************************************************************************************************************************************#}
+
+
+    <div class="card card-body">
+
+        <label for="smFormGroupInput" class=" col-form-label-lg"> Détail sur ce modèle d'exercice: <p></label>
+        <label for="smFormGroupInput" class=" col-form-label-sm">
+            
+            <h6> Auteur:  <span class="text-secondary">{{ exerciceModel.author.username }}</h6>
+            <h6> Titre:  <span class="text-secondary">{{ exerciceModel.title }}</h6>  
+            <h6> Type:  <span class="text-secondary">   {{ exerciceModel.type }}  .   
+            
+            {% if exerciceModel.type =="group-items" %}
+                    <i class="fas fa-link"></i>
+
+            {% elseif exerciceModel.type == "multiple-choice" %}
+                    <i class="fas fa-check-square"></i>
+
+            {% elseif exerciceModel.type == "open-ended-question" %}
+                    <i class="fas fa-question-circle"></i>
+
+            {% elseif exerciceModel.type == "order-items" %}
+                    <i class="fas fa-arrows-alt-v"></i>
+
+            {% elseif exerciceModel.type == "pair-items" %}
+                    <i class="fas fa-random"></i>
+                
+            {% endif %}
+        
+
+
+            </h6>
+          {#  <h6> Description:  <span class="text-secondary">{{ exerciceModel.content }}</h6>  #}
+        
+        </label>
+
+    </div>  
+
+{#**************************************************************************************************************************************#}
+<p><p><p><p>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="answers-tab" data-toggle="tab" href="#answers" role="tab" aria-controls="answers" aria-selected="true">
+    Liste des réponses faites par tous les apprenants dans ce modèle</a>
+  </li>
+ 
+  <li class="nav-item">
+    <a class="nav-link" id="nonanswers-tab" data-toggle="tab" href="#nonanswers" role="tab" aria-controls="nonanswers" aria-selected="false">
+    Liste des tentatasives dont les apprenants n'ont pas donner une réponse 
+    </a>
+  </li>
+
+
+   <li class="nav-item">
+    <a class="nav-link" id="xapi-tab" data-toggle="tab" href="#xapi" role="tab" aria-controls="xapi" aria-selected="false">
+    Code XAPI pour les réponses
+    </a>
+  </li>
+
+
+</ul>
+
+
+
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="answers" role="tabpanel" aria-labelledby="answers-tab">
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th class="th-exercice">identifiant réponse</th>
+                <th class="th-exercice">Apprenant</th>
+         {#         <th class="th-exercice">Type de la réponse </th>   #}   
+                <th class="th-exercice">Le </th>
+                <th class="th-exercice">Note </th>
+         {#        <th class="th-exercice">contenu de la réponse</th>
+                <th class="th-exercice">contenu de l'item</th>
+                <th class="th-exercice">contenu de l'exercice</th>
+           #}     
+                
+            </tr>
+        </thead>
+
+        <tbody>
+    
+        {% for answer in answers %}
+
+            <tr>           
+                <td>{{ answer.id }}</td>                    
+                <td>{{ answer.attempt.user.username}}</td>                    
+          {#      <td>{{ answer.item.type}}</td>    #}   
+                <td>{{ answer.createdAt|date('Y-m-d H:i:s') }}</td>                    
+                <td>{{ answer.mark}}</td> 
+             {#   <td>{{ answer.content}}</td> 
+                <td>{{ answer.attempt.exercise.content}}</td>                    
+                <td>{{ answer.item.content}}</td>      
+            #}
+
+            </tr>
+        {% endfor %}
+       
+        </tbody>
+            
+    </table>
+</div>
+{#**************************************************************************************************************************************#}
+<div class="tab-pane fade" id="nonanswers" role="tabpanel" aria-labelledby="nonanswers-tab">
+
+
+  <table class="table">
+
+        <thead>
+            <tr>
+                <th class="th-exercice">identifiant tentative</th>
+                <th class="th-exercice">concerne l'apprenant</th>                
+                <th class="th-exercice">dans l'exercice</th>              
+            </tr>
+        </thead>
+
+        <tbody>
+    
+        {% for attempt in attempswithoutAnswers %}
+
+            <tr>           
+                <td>{{ attempt.id }}</td>                    
+                <td>{{ attempt.user.username}}</td>                    
+                <td>{{ attempt.exercise.id}}</td>                    
+              
+            </tr>
+        {% endfor %}
+        
+
+        </tbody>
+            
+    </table>
+
+  </div>
+
+<div class="tab-pane fade" id="xapi" role="tabpanel" aria-labelledby="xapi-tab">
+
+ <textarea>
+  
+{% for xapi in xapiJson %}
+    {{ xapi|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_SLASHES') b-or constant('JSON_UNESCAPED_UNICODE')) }}
+    
+
+    
+{% endfor %}
+
+ </textarea>
+
+</div>
+
+{#**************************************************************************************************************************************#}
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# Toolbar to view one competence #}
+{#**************************************************************************************************************************************#}
+
+    <div class="card card-body">
+
+        <label for="smFormGroupInput" class=" col-form-label-lg"> Détail sur cette compétence: <p></label>
+
+        <label for="smFormGroupInput" class=" col-form-label-sm">
+            
+            <h6> Titre: {{ competence.nom }}</h6>
+            <h6> Description: {{ competence.description }}</h6>  
+
+        </label>
+
+    </div>    
+
+{#**************************************************************************************************************************************#}
+    <div>
+        <hr>    
+        <label><h6>Liste des compétences associées à ce référentiel<h6></label>
+    </div>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th class="th-exercice">Auteur </th>
+                <th class="th-exercice">Titre</th>
+                <th class="th-exercice">Type</th>
+                <th class="th-exercice">Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+                
+            {% for exercice in competence.modelesExercices %}
+                
+                <tr>           
+                    <td>{{ exercice.author.username }}</td>
+                    <td>{{ exercice.title }}</td>       
+                    <td>{{ exercice.type }}</td>                                            
+                    <td>{{ exercice.content }}</td>                                            
+
+                </tr>
+            {% endfor %}
+        </tbody>
+            
+    </table>
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

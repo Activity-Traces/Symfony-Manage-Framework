@@ -1,0 +1,76 @@
+{
+  "entrypoints": {
+    "add": {
+      "js": [
+        "/build/runtime.js",
+        "/build/add.js"
+      ]
+    },
+    "mystyle": {
+      "js": [
+        "/build/runtime.js",
+        "/build/mystyle.js"
+      ],
+      "css": [
+        "/build/mystyle.css"
+      ]
+    },
+    "reference": {
+      "js": [
+        "/build/runtime.js",
+        "/build/reference.js"
+      ]
+    },
+    "trace": {
+      "js": [
+        "/build/runtime.js",
+        "/build/trace.js"
+      ]
+    },
+    "calcul": {
+      "js": [
+        "/build/runtime.js",
+        "/build/calcul.js"
+      ]
+    },
+    "exercice": {
+      "js": [
+        "/build/runtime.js",
+        "/build/exercice.js"
+      ]
+    },
+    "login": {
+      "js": [
+        "/build/runtime.js",
+        "/build/login.js"
+      ],
+      "css": [
+        "/build/login.css"
+      ]
+    },
+    "vider": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vider.js"
+      ]
+    },
+    "link": {
+      "js": [
+        "/build/runtime.js",
+        "/build/link.js"
+      ]
+    },
+    "user": {
+      "js": [
+        "/build/runtime.js",
+        "/build/user.js"
+      ]
+    },
+    "disconnect": {
+      "js": [
+        "/build/runtime.js",
+        "/build/disconnect.js"
+      ]
+    }
+  }
+}

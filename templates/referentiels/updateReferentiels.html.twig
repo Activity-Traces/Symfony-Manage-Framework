@@ -1,0 +1,67 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# add new referentiel #}
+{#**************************************************************************************************************************************#}
+
+    {% if action =='AddReferentiel' %}
+
+    <div class="card card-body">
+
+            {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+        
+            {{ form_start(form) }}
+
+                {{ form_row(form.titre, {'attr': {'rows' : '8', 'placeholder' : "Donner un titre à votre référentiel"}}) }}
+                {{ form_row(form.description, {'attr': {'rows' : '8', 'placeholder' : "Donner une description à votre référentiel"}}) }}
+            
+                <p>
+
+                <div  align="right">
+                    <button type="submit" class="btn" >                    
+                            Ajouter aux reférentiels
+                    </button>
+                </div>
+
+            {{ form_end(form) }}
+
+    </div>    
+            
+    {% endif %}
+
+{#**************************************************************************************************************************************#}
+{# edit an existing referentiel #}
+{#**************************************************************************************************************************************#}
+
+    {% if action =='EditReferentiel' %}
+
+        <div class="card card-body">
+
+
+                {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+                {{ form_start(form) }}
+                
+                    {{ form_row(form.titre, {'attr': {'placeholder' : "Donner un nom à votre référentiel"}}) }}
+                    {{ form_row(form.description, {'attr': {'rows' : '8', 'placeholder' : "Donner une description à votre référentiel"}}) }}
+                    <div align="right">       
+                        <button type="submit" class="btn">                    
+                                Editer ce reférentiel
+                        </button>
+                    </div>
+
+                {{ form_end(form) }} 
+        </div>  
+        
+    {% endif %}
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

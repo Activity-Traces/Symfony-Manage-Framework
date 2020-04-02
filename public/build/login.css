@@ -1,0 +1,72 @@
+/* BASIC */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: rgb(240, 240, 240);
+  font-size: 0.9em;
+
+}
+
+a {
+  color: white;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+
+
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #2e6074;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  text-align: center;
+}
+
+#formFooter {
+  background-color: #7d8f78;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+input[type=text], [type=password] {
+  background-color: #f1f0e9;
+  border: none s;
+  color: #241406;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+ 
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+
+img {
+  width:80%;
+}

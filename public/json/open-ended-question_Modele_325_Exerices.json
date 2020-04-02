@@ -1,0 +1,443 @@
+{
+    "0": {
+        "timestamps": {
+            "date": "2018-07-03 21:47:36.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "nathalie.guin",
+            "mbox": "nathalie.guin"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:51437",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": false,
+            "score": {
+                "scaled": 0
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nO N L I ?",
+                        "attendue": "E",
+                        "repondue": "T",
+                        "correcte": false
+                    }
+                }
+            }
+        }
+    },
+    "1": {
+        "timestamps": {
+            "date": "2018-11-19 16:47:23.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "p1712391",
+            "mbox": "p1712391"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:89119",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": true,
+            "score": {
+                "scaled": 100
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nB G L Q ?",
+                        "attendue": "V",
+                        "repondue": "V",
+                        "correcte": true
+                    }
+                }
+            }
+        }
+    },
+    "2": {
+        "timestamps": {
+            "date": "2018-11-19 17:03:25.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "p1401096",
+            "mbox": "p1401096"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:89150",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": true,
+            "score": {
+                "scaled": 100
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nA E I O ?",
+                        "attendue": "U",
+                        "repondue": "U",
+                        "correcte": true
+                    }
+                }
+            }
+        }
+    },
+    "3": {
+        "timestamps": {
+            "date": "2018-11-19 17:12:45.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "p1808117",
+            "mbox": "p1808117"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:89215",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": true,
+            "score": {
+                "scaled": 100
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nF H E G ?",
+                        "attendue": "D",
+                        "repondue": "D",
+                        "correcte": true
+                    }
+                }
+            }
+        }
+    },
+    "4": {
+        "timestamps": {
+            "date": "2018-11-19 17:19:34.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "p1608557",
+            "mbox": "p1608557"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:89222",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": false,
+            "score": {
+                "scaled": 0
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nP N O M ? L",
+                        "attendue": "N",
+                        "repondue": "K",
+                        "correcte": false
+                    }
+                }
+            }
+        }
+    },
+    "5": {
+        "timestamps": {
+            "date": "2018-11-19 17:14:35.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "p1808676",
+            "mbox": "p1808676"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:89220",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": false,
+            "score": {
+                "scaled": 0
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nF H E G ?",
+                        "attendue": "D",
+                        "repondue": "I",
+                        "correcte": false
+                    }
+                }
+            }
+        }
+    },
+    "6": {
+        "timestamps": {
+            "date": "2018-11-19 17:20:12.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "p1608557",
+            "mbox": "p1608557"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:89223",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": false,
+            "score": {
+                "scaled": 0
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nA E I O ?",
+                        "attendue": "U",
+                        "repondue": "u",
+                        "correcte": false
+                    }
+                }
+            }
+        }
+    },
+    "7": {
+        "timestamps": {
+            "date": "2019-01-17 21:10:46.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "m.lefevre",
+            "mbox": "m.lefevre"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:92715",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": false,
+            "score": {
+                "scaled": 0
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nO N L I ?",
+                        "attendue": "E",
+                        "repondue": "X",
+                        "correcte": false
+                    }
+                }
+            }
+        }
+    },
+    "8": {
+        "timestamps": {
+            "date": "2019-03-29 06:40:55.000000",
+            "timezone_type": 3,
+            "timezone": "Europe/Berlin"
+        },
+        "actor": {
+            "name": "m.lefevre",
+            "mbox": "m.lefevre"
+        },
+        "verb": {
+            "id": "https://comper.fr/xapi/verbs/reponse",
+            "display": {
+                "fr-FR": "a repondu"
+            }
+        },
+        "object": {
+            "id": "https://comper.fr/xapi/objects/reponse:98278",
+            "objectType": "reponse",
+            "defintion": {
+                "type": "https://comper.fr/xapi/activities/open-ended-question",
+                "name": {
+                    "fr-FR": "open-ended-question"
+                },
+                "description": {
+                    "fr-FR": "open-ended-question"
+                },
+                "extensions": ""
+            }
+        },
+        "result": {
+            "completion": true,
+            "sucess": false,
+            "score": {
+                "scaled": 0
+            },
+            "extensions": {
+                "question": "Ecrire la réponse en lettre majuscule.",
+                "Question-Elements": {
+                    "element": {
+                        "question": "Quelle lettre complète cette suite logique : \n\nF H E G ?",
+                        "attendue": "D",
+                        "repondue": "N",
+                        "correcte": false
+                    }
+                }
+            }
+        }
+    }
+}

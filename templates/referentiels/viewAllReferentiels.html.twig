@@ -1,0 +1,161 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+     
+    {{ form_start(form) }}    
+        {{ form_row(form.search, {'attr': {'placeholder' : "Trouver un référentiel"}}) }}
+    {{ form_end(form) }}
+
+{#**************************************************************************************************************************************#}
+
+    <div class="card card-cascade narrower">
+
+        <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 
+                d-flex justify-content-between align-items-center">
+            
+            <h6>Liste des référentiels</h6>
+
+            <div>
+                
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <a  href="{{path('addReferentiel')}}">
+                            <i  class='fas fa-plus' title='Ajouter un nouveau référentiel'></i>               
+                        </a>
+                </button>
+
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <i  class='fas fa-link' title="Associer des compétences à des referentiels" data-toggle="modal" 
+                            data-target="#myModal">
+                        </i>               
+                </button>
+
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <a href="{{path('clearAllReferentiels')}}">
+                            <i class='fas fa-trash'
+                                title="Supprimer tous les référentiels" 
+                                onclick="return confirm('Voulez vous supprimer tous les réferentiels de compétences? ceci supprimera aussi toutes les associations référentiels/compétences ')">
+                            </i>
+                        </a>      
+                </button>
+
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-info-circle mt-0"></i>
+                </button>
+            </div>
+
+        </div>
+
+{#**************************************************************************************************************************************#}
+
+        <div class="px-4">
+
+            <div class="table-wrapper">
+            
+                <table class="table table-hover mb-0">
+
+                    <thead>
+                        <tr >
+                            <th class="th-referentiel">Titre</th>
+                            <th class="th-referentiel">Description</th>
+                            <th class="th-referentiel">Détails</th>
+                            <th class="th-referentiel">Editer</th>
+                            <th class="th-referentiel">Supprimer</th>
+                            <th class="th-referentiel">Partager</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for ligne in result %}         
+                            <tr>           
+                                <td>{{ ligne.titre }}</td>
+                                <td>{{ ligne.description }}</td>                                            
+                                <td><a href="{{path('viewOneReferentiel', {'id':ligne.id })}}" title="Détails">
+                                    <i class="fas fa-eye"></i></a></td>    
+                                <td><a href="{{path('editReferentiel', {'id':ligne.id })}}" title="Editer">
+                                    <i class="fas fa-marker"></i></a></td>  
+
+                                <td><a href="{{path('deleteReferentiel', {'id':ligne.id })}}" 
+                                            onclick="return confirm('Voulez vous supprimer ce référentiel?')" title="Supprimer?">
+                                            <i class="fas fa-trash"></i></a>
+                                </td>
+
+
+
+                                {% if not ligne.isshared %}
+                                    <td><a href="{{path('canShareReferentiel', {'id':ligne.id })}}" title="Partager"
+                                                onclick="return confirm('Voulez vous partager ce référentiel?')" title="Partager?">
+                                                <i class="fas fa-atlas"></i></a>
+                                    </td>
+
+                                {% else %}
+
+                                <td><a href="{{path('canShareReferentiel', {'id':ligne.id })}}" title="Ne pas partager" 
+                                                onclick="return confirm('Voulez vous retirer ce referentiel de la liste des référentiels partagés?')" title="Ne pas partager?">
+                                                <i class="fas fa-atlas" style="color: #A00944;"></i></a>
+                                    </td>
+
+                                {% endif %}
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p><p>
+
+        </div>
+
+    </div>    
+
+
+{#**************************************************************************************************************************************#}
+{# Modal dialog myModal used to link refentiels to competences #}
+{#**************************************************************************************************************************************#}
+
+    <div class="modal fade" id="myModal" role="dialog">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h6 class="modal-title">Associer competences au referentiel</h6>
+                </div>
+
+                <div class="modal-body">
+                    {% form_theme AssociateForm 'bootstrap_4_horizontal_layout.html.twig' %}
+                    {{ form_start(AssociateForm) }}  
+                    {{ form_row(AssociateForm.titre) }}          
+                    {{ form_row(AssociateForm.nom) }}
+                </div>
+
+                <div class="modal-footer">
+                    <button  type="submit" class="btn">Associer</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                </div>
+
+                {{ form_end(AssociateForm) }}
+            </div>    
+
+        </div>
+        
+    </div>
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

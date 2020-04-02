@@ -1,0 +1,59 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# Toolbar to view one referentiel #}
+{#**************************************************************************************************************************************#}
+
+    <div class="card card-body">
+
+        <label for="smFormGroupInput" class=" col-form-label-lg"> Détail sur ce modèle d'exercice: <p></label>
+        <label for="smFormGroupInput" class=" col-form-label-sm">
+            
+            <h6> Auteur:  <span class="text-secondary">{{ exerciceModel.author.username }}</h6>
+            <h6> Titre:  <span class="text-secondary">{{ exerciceModel.title }}</h6>  
+            <h6> Type:  <span class="text-secondary">{{ exerciceModel.type }}</h6>
+            <h6> Description:  <span class="text-secondary">{{ exerciceModel.content }}</h6>  
+        
+        </label>
+
+    </div>  
+
+{#**************************************************************************************************************************************#}
+    <div>
+        <hr>    
+        <label><h6>Liste des exerices enregistrés en relation avec ce modèle<h6></label>
+    </div>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th class="th-exercice">Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        
+            {% for exo in exercices %}
+
+                <tr>           
+                    <td>{{ exo.content }}</td>                    
+                </tr>
+                
+            {% endfor %}
+        
+
+        </tbody>
+            
+    </table>
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

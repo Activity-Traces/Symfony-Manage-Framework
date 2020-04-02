@@ -1,0 +1,39 @@
+{
+    "timestamp": "2015-12-18T05:32:34.804Z",
+    "verb": {
+        "id": "http://exemple.irit.fr/xapi/verbs/interacted",
+        "display": {
+            "en-GB": "executed",
+            "fr-FR": "exécuté"
+        }
+    },
+    "object": {
+        "id": "http://traffic.irit.fr/xapi/objects/computerinstruction",
+        "definition": {
+            "name": {
+                "en-GB": "computer instruction",
+                "fr-FR": "computer instruction"
+            },
+            "description": {
+                "en-GB": "an instruction for a computer.",
+                "fr-FR": "Une instruction d'ordinateur."
+            },
+            "extensions": {
+                "http://exemple.irit.fr/xapi/activityextensions/computerinstruction": {
+                    "command": "rm",
+                    "arguments": "-v myfile"
+                }
+            },
+            "type": "http://exemple.irit.fr/xapi/activities/computerinstruction"
+        }
+    },
+    "result": {
+        "response": "rm: myfile: No such file or directory",
+        "success": false,
+        "extensions": {
+            "http://exemple.irit.fr/xapi/resultextensions/hesitance": 0.78
+        }
+    },
+    "actor": {},
+    "context": {}
+}

@@ -1,0 +1,67 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# Toolbar to view one referentiel #}
+{#**************************************************************************************************************************************#}
+
+   <div class="card card-body">
+
+        <label for="smFormGroupInput" class=" col-form-label-lg"> Détail sur ce réferentiel:</label>
+
+        <label for="smFormGroupInput" class=" col-form-label-sm">     
+            <h6> Titre : <strong>{{ referentiel.titre }}</strong></h6>
+            <h6> Description : <strong>{{ referentiel.description }}</strong></h6>  
+        </label>
+
+    </div>  
+
+{#**************************************************************************************************************************************#}
+
+    <div>  
+        
+        <hr>
+            <label><h6>Liste des compétences associées à ce référentiel<h6></label><p>
+    </div>  
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th class="th-competence">Identifiant</th>
+                <th class="th-competence">Nom</th>
+                <th class="th-competence">Description</th>
+                <th class="th-competence">Supprimer</th>
+            </tr>
+        </thead>
+
+        <tbody>
+                
+            {% for comp in referentiel.competences %}
+
+                <tr>           
+                    <td>{{ comp.id }}</td>
+                    <td>{{ comp.nom }}</td>
+                    <td>{{ comp.description }}</td>                                            
+                    <td>
+                        <a href="{{path('deleteCompetencesRelation', {'ref':referentiel.id, 'id':comp.id })}}" title="Supprmier?"
+                            onclick="return confirm('Voulez vous dissocier cette compétence du référentiel?')">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>    
+                </tr>
+                
+            {% endfor %}
+        </tbody>
+            
+    </table>
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

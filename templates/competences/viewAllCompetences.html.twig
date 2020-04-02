@@ -1,0 +1,170 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+        
+    {{ form_start(form) }}    
+        {{ form_row(form.search, {'attr': {'placeholder' : "Trouver une compétence"}}) }}
+    {{ form_end(form) }}
+
+{#**************************************************************************************************************************************#}
+
+    <div class="card card-cascade narrower">
+
+        <div class="    view view-cascade gradient-card-header blue-gradient narrower 
+                        py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+        
+            <h6>Liste des compétences</h6>
+
+            <div>
+            
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <a href="{{path('AddCompetence')}}">
+                        <i  class='fas fa-plus' title='Ajouter une nouvelle compétence'></i>         
+                    </a>
+                </button>
+
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i  class='fas fa-link' title="Associer des exercices Asker à des compétences"
+                        data-toggle="modal" data-target="#myModal">
+                    </i>               
+                </button>
+
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <a href="{{path('clearAllCompetences')}}">
+                        <i class='fas fa-trash'
+                            title="Tout supprimer" 
+                            onclick="return confirm('Voulez vous supprimer toutes les compétences? 
+                                     ceci supprimera tous les modèles d exrcices en relation')">
+                        </i>
+                    </a>
+                </button>
+
+                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-info-circle mt-0"></i>
+                </button>
+            </div>
+
+        </div>
+
+{#**************************************************************************************************************************************#}
+
+    <div class="px-4">
+
+        <div class="table-wrapper">
+
+            <table class="table table-hover mb-0">
+
+                <thead>
+                    <tr class="tr-competence">
+                        <th class="th-competence">Titre</th>
+                        <th class="th-competence">Description</th>
+                        <th class="th-competence">Voir</th>
+                        <th class="th-competence">Editer</th>
+                        <th class="th-competence">Supprimer</th>
+                        <th class="th-competence">Partager</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                {% if result != null %}
+
+                    {% for ligne in result %}   
+
+                        <tr>
+                            <td>{{ ligne.nom }}</td>
+                            <td>{{ ligne.description }}</td>
+                            <td><a href="{{path('ViewOneCompetence', {'id':ligne.id })}}" title="Détails">
+                                    <i class="fas fa-eye" ></i>
+                                </a>
+                            </td> 
+                            <td><a href="{{path('editCompetence', {'id':ligne.id })}}" title="Editer">
+                            <i class="fas fa-marker"></i></a></td> 
+                            <td><a href="{{path('deleteCompetence', {'id':ligne.id })}}" title="Supprimer?" 
+                                    onclick="return confirm('Voulez vous supprimer cette compétence?')">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td> 
+                            
+                            {% if not ligne.isshared %}
+
+                                    <td><a href="{{path('canShareCompetence', {'id':ligne.id })}}" title="Partager"
+                                                onclick="return confirm('Voulez vous partager cette compétence?')" title="Partager?">
+                                                <i class="fas fa-atlas"></i></a>
+                                    </td>
+                            
+                                {% else %}
+
+                                    <td><a href="{{path('canShareCompetence', {'id':ligne.id })}}" title="Ne pas partager" 
+                                                onclick="return confirm('Voulez vous retirer cette compétence de la liste des compétences partagées?')" 
+                                                title="Ne pas partager?">
+                                                <i class="fas fa-atlas" style="color: #A00944;"></i>
+                                        </a>
+                                    </td>
+
+                            {% endif %}
+
+                        </tr>
+
+                    {% endfor %}
+
+                {% endif %}
+
+                </tbody>
+
+            </table> 
+
+        </div>
+        
+        <p><p>
+    </div>
+
+{#**************************************************************************************************************************************#}
+{# Modal dialog myModal used to link Asker exercices to competences #}
+{#**************************************************************************************************************************************#}
+
+    <div class="modal fade" id="myModal" role="dialog">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h6 class="modal-title">Associer Exercices Asker aux compétences</h6>
+
+                </div>
+
+                <div class="modal-body">
+
+                    {% form_theme AssociateForm 'bootstrap_4_horizontal_layout.html.twig' %}
+                    {{ form_start(AssociateForm) }}  
+                    {{ form_row(AssociateForm.nom) }}          
+                    {{ form_row(AssociateForm.title) }}
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button  type="submit" class="btn">Associer</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+
+                </div>
+
+                {{ form_end(AssociateForm) }}
+            
+            </div>    
+        </div>
+    </div>
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

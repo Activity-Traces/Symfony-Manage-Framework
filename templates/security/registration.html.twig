@@ -1,0 +1,85 @@
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# Create a simple form for new account #}
+{#**************************************************************************************************************************************#}
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  {{ encore_entry_link_tags('login') }}
+
+{#**************************************************************************************************************************************#}
+
+  <div class="wrapper fadeInDown">
+    
+    <div id="formContent">
+
+      <div class="form-group">
+
+          {{ form_start(form) }}  
+
+              <p>
+              {{ form_row(form.username, {'attr': {'placeholder' : "Identifiant"}}) }}
+              {{ form_row(form.email, {'attr': {'placeholder' : "email"}}) }}
+              {{ form_row(form.password, {'attr': {'placeholder' : "mot de passe"}}) }}
+              {{ form_row(form.confirm_password, {'attr': {'placeholder' : "confirmer le mot de passe"}}) }}
+              <button type="submit" class="btn"> Inscription</button>
+
+          {{ form_end(form) }}
+
+        </div>
+
+    </div>
+
+
+{#**************************************************************************************************************************************#}
+{# Images LOGO #}
+{#**************************************************************************************************************************************#}
+
+  <hr>
+
+{#**************************************************************************************************************************************#}
+
+  <div class="container"><hr>
+
+    <a href="https://liris.cnrs.fr/" 
+        target=_blank align="center" title="LIRIS">
+        <img src="https://liris.cnrs.fr/sites/default/files/logo_liris_160_0.png"/>
+    </a>
+
+    <a href="http://www.irit.fr" 
+        target=_blank align="center" title="IRIT">
+        <img src="http://www.irit.fr/IMG/siteon0.jpg?1530796181"/>
+    </a>
+
+    <a href="https://projet.liris.cnrs.fr/asker/index.html"
+      target=_blank align="center" title="ASKER">
+      <img src="https://projet.liris.cnrs.fr/asker/images/logo.png">
+    </a>
+
+    <a href="http://www.educlever.com" 
+      target=_blank align="center" title="EDUCLEVER">
+      <img src="https://static.wixstatic.com/media/a44817_da0d58efe4364e529199b110aa57a5f2~mv2.png/v1/fill/w_177,h_20,al_c,q_80,usm_0.66_1.00_0.01/a44817_da0d58efe4364e529199b110aa57a5f2~mv2.webp">
+    </a>
+
+    <a href="http://www.praxiling.fr/" 
+      target=_blank align="center" title="Praxiling">
+      <img src="http://comper.fr/sites/default/files/inline-images/logo-praxiling.png">
+    </a>
+
+ <a href="http://www.agence-nationale-recherche.fr/" 
+      target=_blank align="center" title="Agence Nationale de la recherche">
+      <img src="http://comper.fr/sites/default/files/inline-images/label-ANR-bleu-CMJN.png">
+    </a>
+
+
+  </div>
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}

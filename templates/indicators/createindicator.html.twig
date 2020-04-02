@@ -1,0 +1,78 @@
+{#**************************************************************************************************************************************#}
+{% extends 'base.html.twig' %}
+{#**************************************************************************************************************************************#}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+{#**************************************************************************************************************************************#}
+{# create new indicator #}
+{#**************************************************************************************************************************************#}
+
+    <div class="card card-body">
+
+        <div class="form-row">
+
+            <div class="col">
+                {{ form_start(form) }}  
+                {{ form_row(form.titre)}}       
+            </div>
+
+            <div class="col">
+                {{ form_row(form.Interval) }}  
+            </div>
+
+        </div>  
+        
+{#**************************************************************************************************************************************#}
+        <hr>
+
+        <h6>Nous vous proposons 3 formes d'évaluations</h6><p>
+
+        <div class="custom-control custom-radio">
+
+            <input type="radio" id="Radio1" name="Radio" value="competences" class="custom-control-input" checked>
+            <label class="custom-control-label" for="Radio1">
+                   Trouver quelles sont les compétences aquises et par quels apprenants?
+            </label>
+
+        </div><p>
+
+        <div class="custom-control custom-radio">
+
+            <input type="radio" id="Radio2" name="Radio" value="learner" class="custom-control-input">
+            <label class="custom-control-label" for="Radio2">
+                Evaluer pour chaque apprenant la liste de ses compétences aquises?
+            </label>
+
+        </div>
+        
+        <p>
+
+        <div class="custom-control custom-radio">
+
+            <input type="radio" id="Radio3" name="Radio" value="others" class="custom-control-input">
+            <label class="custom-control-label" for="Radio3">
+                Autres modes d'évaluations
+            </label>
+
+        </div>
+
+        <hr>
+
+{#**************************************************************************************************************************************#}
+        <div align="right">
+
+            <button type="submit" class="btn">Evaluer</button>
+            {{ form_end(form) }}
+
+        </div>    
+
+    </div>
+
+{#**************************************************************************************************************************************#}
+{#**************************************************************************************************************************************#}
+
+{% endblock %}
+
